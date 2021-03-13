@@ -36,3 +36,15 @@ def test_string_to_counts_and_call_counts(test_input, expected_tiles, expected_c
     assert len(result_calls) == len(expected_calls)
     for i in range(len(result_calls)):
         assert result_calls[i] == expected_calls[i]
+
+
+@pytest.mark.parametrize("test_input, expected", [
+    ([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+     '123p45699s',),
+    ([1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+     '19m19p19s1234567z'),
+    ([4, 4, 4, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     '111122223333444455m'),
+])
+def test_counts_to_string(test_input, expected):
+    assert counts_to_string(test_input) == expected
