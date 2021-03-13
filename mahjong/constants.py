@@ -33,6 +33,16 @@ class Tile:
                          PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8,
                          SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7, SOU8]
 
+    TYPE_DICT = {Type.MANS: MANS, Type.PINS: PINS, Type.SOUS: SOUS, Type.HONORS: HONORS}
+
+    STRING = {MAN1: '1m', MAN2: '2m', MAN3: '3m', MAN4: '4m', MAN5: '5m',
+              MAN6: '6m', MAN7: '7m', MAN8: '8m', MAN9: '9m',
+              PIN1: '1p', PIN2: '2p', PIN3: '3p', PIN4: '4p', PIN5: '5p',
+              PIN6: '6p', PIN7: '7p', PIN8: '8p', PIN9: '9p',
+              SOU1: '1s', SOU2: '2s', SOU3: '3s', SOU4: '4s', SOU5: '5s',
+              SOU6: '6s', SOU7: '7s', SOU8: '8s', SOU9: '9s',
+              EAST: '1z', SOUTH: '2z', WEST: '3z', NORTH: '4z', HAKU: '5z', HATSU: '6z', CHUN: '7z'}
+
 
 class CallType:
     CHI = 'chi'

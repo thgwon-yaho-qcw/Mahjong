@@ -57,3 +57,26 @@ def string_to_counts_and_call_counts(string: str) -> tuple[list[int], list[list[
             raise TileInputError(string)
 
     return concealed_tile_counts, calls
+
+
+def counts_to_string(counts) -> str:
+    """
+    convert count list to string
+    :param counts: int list
+    :return: string
+    """
+    tile_string = ''
+
+    def _add_tile_string(tile_type):
+        nonlocal tile_string
+        nonlocal counts
+
+        for t in Tile.TYPE_DICT[tile_type]:
+            tile_string = tile_string + str(t - Tile.Type.OFFSET[tile_type]) * counts[t]
+        if sum([counts[t] for t in Tile.TYPE_DICT[tile_type]]) > 0:
+            tile_string += tile_type
+
+    for tile_type_ in Tile.Type.ANY:
+        _add_tile_string(tile_type_)
+
+    return tile_string
