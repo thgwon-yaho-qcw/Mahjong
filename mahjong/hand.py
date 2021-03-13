@@ -14,3 +14,7 @@ class Hand:
 
     def __str__(self):
         return self.string
+
+    @property
+    def counts(self):
+        return string_to_counts(self.string)
