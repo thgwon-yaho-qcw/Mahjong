@@ -34,9 +34,10 @@ class Hand:
 
     @property
     def hand_type(self):
-        if len(self.call_counts) * 3 + sum(self.concealed_counts) == 14:
+        tile_num = len(self.call_counts) * 3 + sum(self.concealed_counts)
+        if tile_num == 14:
             return HandType.AFTER_DRAW
-        elif len(self.format_34[1]) * 3 + sum(self.format_34[0]) == 13:
+        elif tile_num == 13:
             return HandType.BEFORE_DRAW
         else:
             return HandType.INVALID
