@@ -12,34 +12,3 @@ from mahjong.convert import string_to_counts
 ])
 def test_string_to_format_34(test_input, expected):
     assert string_to_counts(test_input) == expected
-
-
-Edit
-column
-
-Manage
-automation
-
-Archive
-all
-cards
-
-Copy
-column
-link
-
-Delete
-column
-
-0
-
-Paused
-
-Add
-Cancel
-
-Automated as
-
-
-
-Manage
