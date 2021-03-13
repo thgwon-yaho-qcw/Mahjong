@@ -1,5 +1,6 @@
 from mahjong.constants import HandType
-from mahjong.convert import string_to_counts, string_to_counts_and_call_counts
+from mahjong.convert import string_to_counts_and_call_counts, counts_to_string
+from mahjong.error import TileDiscardError, TileDrawError
 from mahjong.validator import Validator
 
 
@@ -15,6 +16,25 @@ class Hand:
 
     def __str__(self):
         return self.string
+
+    def count_tile(self, tile):
+        return self.concealed_counts[tile]
+
+    def discard(self, tile):
+        if self.concealed_counts[tile] == 0:
+            raise TileDiscardError(self.string, tile)
+
+        new_concealed_counts = self.concealed_counts[:]
+        new_concealed_counts[tile] -= 1
+        self.string = counts_to_string(new_concealed_counts)
+
+    def draw(self, tile):
+        if self.concealed_counts[tile] == 4:
+            raise TileDrawError(self.string, tile)
+
+        new_concealed_counts = self.concealed_counts[:]
+        new_concealed_counts[tile] += 1
+        self.string = counts_to_string(new_concealed_counts)
 
     @property
     def counts(self) -> tuple[list[int], list[list[int]]]:
