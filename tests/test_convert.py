@@ -1,5 +1,5 @@
 import pytest
-from mahjong.convert import string_to_counts, string_to_counts_and_call_counts
+from mahjong.convert import *
 
 
 @pytest.mark.parametrize("test_input, expected", [

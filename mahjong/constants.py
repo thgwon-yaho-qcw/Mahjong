@@ -25,6 +25,14 @@ class Tile:
     TERMINALS_AND_HONORS = TERMINALS + HONORS
     GREENS = [SOU2, SOU3, SOU4, SOU6, SOU8, HATSU]
 
+    MAKE_STRAIGHTS = [MAN1, MAN2, MAN3, MAN4, MAN5, MAN6, MAN7,
+                      PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7,
+                      SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7]
+
+    MAKE_EDGE_OR_SIDE = [MAN1, MAN2, MAN3, MAN4, MAN5, MAN6, MAN7, MAN8,
+                         PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8,
+                         SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7, SOU8]
+
 
 class CallType:
     CHI = 'chi'
@@ -38,3 +46,9 @@ class CallType:
     OPENED = [CHI, PON, BIG_MELDED_KAN, SMALL_MELDED_KAN]
     ANY = OPENED + CONCEALED
     KAN = [CONCEALED_KAN, BIG_MELDED_KAN, SMALL_MELDED_KAN]
+
+
+class HandType:
+    INVALID = 0
+    BEFORE_DRAW = 1
+    AFTER_DRAW = 2
