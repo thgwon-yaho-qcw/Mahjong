@@ -1,4 +1,4 @@
-from mahjong.convert import string_to_counts
+from mahjong.convert import string_to_counts, string_to_counts_and_call_counts
 from mahjong.validator import Validator
 
 
@@ -17,4 +17,12 @@ class Hand:
 
     @property
     def counts(self):
-        return string_to_counts(self.string)
+        return string_to_counts_and_call_counts(self.string)
+
+    @property
+    def concealed_counts(self) -> list[list[int]]:
+        return self.counts[0]
+
+    @property
+    def call_counts(self) -> list[list[int]]:
+        return self.counts[1]
