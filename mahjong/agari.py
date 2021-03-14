@@ -11,10 +11,10 @@ def is_agari(hand: Hand) -> bool:
     """
     if hand.hand_type != HandType.AFTER_DRAW:
         raise TileCountError(hand.string, HandType.AFTER_DRAW)
-    return _is_thirteen_orphan(hand) or _is_seven_pairs(hand) or _is_normal_form(hand)
+    return is_thirteen_orphan_agari(hand) or is_seven_pairs_agari(hand) or is_normal_agari(hand)
 
 
-def _is_thirteen_orphan(hand: Hand) -> bool:
+def is_thirteen_orphan_agari(hand: Hand) -> bool:
     if hand.is_called:
         return False
 
@@ -27,13 +27,13 @@ def _is_thirteen_orphan(hand: Hand) -> bool:
     return True
 
 
-def _is_seven_pairs(hand: Hand) -> bool:
+def is_seven_pairs_agari(hand: Hand) -> bool:
     if hand.is_called:
         return False
     return len([t for t in Tile.ANY if hand.concealed_counts[t] == 2]) == 7
 
 
-def _is_normal_form(hand: Hand) -> bool:
+def is_normal_agari(hand: Hand) -> bool:
     def _is_normal_form_rec(counts, has_head):
         if sum(counts) == 0:
             return has_head
