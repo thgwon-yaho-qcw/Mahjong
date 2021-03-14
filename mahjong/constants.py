@@ -56,21 +56,3 @@ class HandType:
     INVALID = 0
     BEFORE_DRAW = 1
     AFTER_DRAW = 2
-
-
-class PartType:
-    HEAD = 0
-    STRAIGHT = 1
-    OPENED_TRIPLE = 2
-    CONCEALED_TRIPLE = 3
-    OPENED_QUAD = 4
-    CONCEALED_QUAD = 5
-    THIRTEEN_ORPHANS = 6
-
-
-CALL_TYPE_TO_PART_TYPE = {CallType.CHI: PartType.STRAIGHT,
-                          CallType.PON: PartType.OPENED_TRIPLE,
-                          CallType.SMALL_MELDED_KAN: PartType.OPENED_QUAD,
-                          CallType.BIG_MELDED_KAN: PartType.OPENED_QUAD,
-                          CallType.CONCEALED_KAN: PartType.CONCEALED_QUAD,
-                          }
