@@ -91,6 +91,7 @@ def divide_hand(hand: AgariHand):
 
     if is_normal_agari(hand):
         concealed_divisions = _calculate_normal_divisions(concealed_counts)
+
         for concealed_parts in concealed_divisions:
             for ind, concealed_part in enumerate([cp for cp in concealed_parts if cp[1][hand.agari_tile] > 0]):
                 is_final_tile_open_triple = concealed_part[0] == PartType.CONCEALED_TRIPLE and not hand.is_tsumo_agari
