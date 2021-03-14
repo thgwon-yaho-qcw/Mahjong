@@ -4,25 +4,12 @@ from mahjong.error import TileCountError
 from mahjong.shanten import calculate_shanten
 
 
-def _calculate_efficient_tiles(hand):
-    efficient_tiles = []
-    num_tiles = 0
-
-    shanten = calculate_shanten(hand)
-    for i in Tile.ANY:
-        if hand.count_tile(i) == 4:
-            continue
-
-        hand.draw(i)
-        if shanten - 1 == calculate_shanten(hand):
-            efficient_tiles.append(i)
-            num_tiles += 5 - hand.count_tile(i)
-        hand.discard(i)
-
-    return efficient_tiles, num_tiles
-
-
 def calculate_efficiency(hand: Hand):
+    """
+    calculate efficiency list like Tenhou
+    :param hand: hand object
+    :return: list of tuple(int, list[int], int)s
+    """
     if hand.hand_type != HandType.AFTER_DRAW:
         raise TileCountError(hand.string, HandType.AFTER_DRAW)
 
@@ -40,3 +27,21 @@ def calculate_efficiency(hand: Hand):
 
     efficiency.sort(key=lambda x: x[2], reverse=True)
     return efficiency
+
+
+def _calculate_efficient_tiles(hand: Hand):
+    efficient_tiles = []
+    num_tiles = 0
+
+    shanten = calculate_shanten(hand)
+    for i in Tile.ANY:
+        if hand.count_tile(i) == 4:
+            continue
+
+        hand.draw(i)
+        if shanten - 1 == calculate_shanten(hand):
+            efficient_tiles.append(i)
+            num_tiles += 5 - hand.count_tile(i)
+        hand.discard(i)
+
+    return efficient_tiles, num_tiles

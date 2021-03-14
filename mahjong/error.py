@@ -2,6 +2,10 @@ from mahjong.constants import Tile
 
 
 class TileInputError(Exception):
+    """
+    tile_string이 valid하지 않음
+    """
+
     def __init__(self, tile_string):
         self.tile_string = tile_string
 
@@ -10,6 +14,10 @@ class TileInputError(Exception):
 
 
 class TileCountError(Exception):
+    """
+    함수를 호출할때, 손패의 장수가 다름
+    """
+
     def __init__(self, tile_string, hand_type):
         self.tile_string = tile_string
         self.hand_type = hand_type
@@ -19,6 +27,10 @@ class TileCountError(Exception):
 
 
 class TileDiscardError(Exception):
+    """
+    타패할 타일이 손에 없음
+    """
+
     def __init__(self, tile_string, tile):
         self.tile_string = tile_string
         self.tile = tile
@@ -28,6 +40,10 @@ class TileDiscardError(Exception):
 
 
 class TileDrawError(Exception):
+    """
+    쯔모할 타일이 이미 손에 전부 들고 있음
+    """
+
     def __init__(self, tile_string, tile):
         self.tile_string = tile_string
         self.tile = tile
