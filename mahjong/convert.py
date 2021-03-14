@@ -43,10 +43,11 @@ def string_to_counts_and_call_counts(string: str) -> tuple[list[int], list[list[
 
         call_counts = string_to_counts(part[3:])
 
-        if call_type in CallType.KAN and sum(call_counts) != 4:
+        # TODO : validation 더 잘하기
+        if call_type in CallType.KANS and sum(call_counts) != 4:
             raise TileInputError(part)
 
-        if call_type not in CallType.KAN and sum(call_counts) != 3:
+        if call_type not in CallType.KANS and sum(call_counts) != 3:
             raise TileInputError(part)
 
         calls.append(call_counts)
