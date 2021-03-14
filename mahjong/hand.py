@@ -61,3 +61,9 @@ class Hand:
             return HandType.BEFORE_DRAW
         else:
             return HandType.INVALID
+
+    @property
+    def calls(self):
+        call_strings = self.string.split(',')[1:]
+        call_types = [call_string[:3] for call_string in call_strings]
+        return zip(call_types, self.call_counts)
