@@ -53,7 +53,7 @@ class Hand:
         return len(self.call_counts) > 0
 
     @property
-    def hand_type(self):
+    def type(self):
         tile_num = len(self.call_counts) * 3 + sum(self.concealed_counts)
         if tile_num == 14:
             return HandType.AFTER_DRAW
