@@ -10,20 +10,22 @@ def calculate_efficiency(hand: Hand):
     :param hand: hand object
     :return: list of tuple(int, list[int], int)s
     """
-    if hand.hand_type != HandType.AFTER_DRAW:
+    if hand.type != HandType.AFTER_DRAW:
         raise TileCountError(hand.string, HandType.AFTER_DRAW)
 
     shanten = calculate_shanten(hand)
     efficiency = []
-    for i in Tile.ANY:
-        if hand.count_tile(i) == 0:
+
+    for discard_candidate in Tile.ANY:
+        if hand.count_tile(discard_candidate) == 0:
             continue
-        hand.discard(i)
+
+        hand.discard(discard_candidate)
         if shanten == calculate_shanten(hand):
-            data = (i, *_calculate_efficient_tiles(hand))
-            if data[2] > 0:
-                efficiency.append(data)
-        hand.draw(i)
+            efficiency_data = (discard_candidate, *_calculate_efficient_tiles(hand))
+            if efficiency_data[2] > 0:
+                efficiency.append(efficiency_data)
+        hand.draw(discard_candidate)
 
     efficiency.sort(key=lambda x: x[2], reverse=True)
     return efficiency
@@ -34,14 +36,13 @@ def _calculate_efficient_tiles(hand: Hand):
     num_tiles = 0
 
     shanten = calculate_shanten(hand)
-    for i in Tile.ANY:
-        if hand.count_tile(i) == 4:
+    for draw_candidate in Tile.ANY:
+        if hand.count_tile(draw_candidate) == 4:
             continue
-
-        hand.draw(i)
+        hand.draw(draw_candidate)
         if shanten - 1 == calculate_shanten(hand):
-            efficient_tiles.append(i)
-            num_tiles += 5 - hand.count_tile(i)
-        hand.discard(i)
+            efficient_tiles.append(draw_candidate)
+            num_tiles += 5 - hand.count_tile(draw_candidate)
+        hand.discard(draw_candidate)
 
     return efficient_tiles, num_tiles

@@ -33,9 +33,10 @@ def string_to_counts_and_call_counts(string: str) -> tuple[list[int], list[list[
     :return: int list, list of int lists
     """
     parts = string.split(',')
-    all_tiles_counts = concealed_tile_counts = string_to_counts(parts[0])
-
+    concealed_tile_counts = string_to_counts(parts[0])
+    all_tiles_counts = concealed_tile_counts[:]
     calls = []
+
     for part in parts[1:]:
         call_type = part[:3]
         if call_type not in CallType.ANY:
@@ -51,7 +52,7 @@ def string_to_counts_and_call_counts(string: str) -> tuple[list[int], list[list[
             raise TileInputError(part)
 
         calls.append(call_counts)
-        all_tiles_counts = map(add, all_tiles_counts, call_counts)
+        all_tiles_counts = list(map(add, all_tiles_counts, call_counts))
 
     for t in all_tiles_counts:
         if t < 0 or t > 4:
@@ -68,16 +69,15 @@ def counts_to_string(counts) -> str:
     """
     tile_string = ''
 
-    def _add_tile_string(tile_type):
-        nonlocal tile_string
-        nonlocal counts
-
-        for t in Tile.TYPE_DICT[tile_type]:
-            tile_string = tile_string + str(t - Tile.Type.OFFSET[tile_type]) * counts[t]
-        if sum([counts[t] for t in Tile.TYPE_DICT[tile_type]]) > 0:
-            tile_string += tile_type
-
-    for tile_type_ in Tile.Type.ANY:
-        _add_tile_string(tile_type_)
+    for tile_type in Tile.Type.ANY:
+        tile_string += _get_one_type_string(counts, tile_type)
 
     return tile_string
+
+
+def _get_one_type_string(counts, tile_type):
+    number_string = ''
+    for t in Tile.TYPE_DICT[tile_type]:
+        number_string = number_string + str(t - Tile.Type.OFFSET[tile_type]) * counts[t]
+
+    return number_string + tile_type if len(number_string) > 0 else ''
