@@ -27,6 +27,7 @@ class Tile:
 
     MAKE_STRAIGHTS = MANS[0:7] + PINS[0:7] + SOUS[0:7]
     MAKE_EDGE_OR_SIDE = MANS[0:8] + PINS[0:8] + SOUS[0:8]
+    SIMPLES = MANS[1:8] + PINS[1:8] + SOUS[1:8]
     TYPE_DICT = {Type.MANS: MANS, Type.PINS: PINS, Type.SOUS: SOUS, Type.HONORS: HONORS}
 
     STRING = {MAN1: '1m', MAN2: '2m', MAN3: '3m', MAN4: '4m', MAN5: '5m',
@@ -66,6 +67,13 @@ class PartType:
     OPENED_QUAD = 4
     CONCEALED_QUAD = 5
     THIRTEEN_ORPHANS = 6
+    FU_DICT = {HEAD: 0,
+               STRAIGHT: 0,
+               OPENED_TRIPLE: 2,
+               CONCEALED_TRIPLE: 4,
+               OPENED_QUAD: 8,
+               CONCEALED_QUAD: 16,
+               THIRTEEN_ORPHANS: 0}
 
 
 CALL_TYPE_TO_PART_TYPE = {CallType.CHI: PartType.STRAIGHT,

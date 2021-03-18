@@ -16,9 +16,11 @@ class Division:
         def __repr__(self):
             return self.__str__()
 
-    def __init__(self, divs, agari_tile_index):
+    def __init__(self, divs, agari_tile_index, agari_tile, is_opened=False):
         self.parts = [self.Part(part_type, counts) for (part_type, counts) in divs]
         self.agari_tile_index = agari_tile_index
+        self.agari_tile = agari_tile
+        self.is_opened = is_opened
 
 
 def _divide_bodies(index, counts, normal_parts_list, parts):
@@ -73,7 +75,7 @@ def _calculate_concealed_parts_list(counts):
 
 def _calculate_thirteen_orphans_divisions(hand: AgariHand):
     if is_thirteen_orphan_agari(hand):
-        return [Division([(PartType.THIRTEEN_ORPHANS, hand.concealed_counts)], 0)]
+        return [Division([(PartType.THIRTEEN_ORPHANS, hand.concealed_counts)], 0, hand.agari_tile)]
     return []
 
 
@@ -95,7 +97,7 @@ def _calculate_seven_pairs_divisions(hand: AgariHand):
             agari_tile_index = len(parts)
         parts.append((PartType.HEAD, now_counts))
 
-    divisions.append(Division(parts, agari_tile_index))
+    divisions.append(Division(parts, agari_tile_index, hand.agari_tile))
     return divisions
 
 
@@ -107,6 +109,7 @@ def _calculate_normal_divisions(hand: AgariHand):
     concealed_counts = hand.concealed_counts[:]
     concealed_parts_list = _calculate_concealed_parts_list(concealed_counts)
     call_parts = list(map(lambda x: (CALL_TYPE_TO_PART_TYPE[x[0]], x[1]), hand.calls))
+    is_opened = len(call_parts) > 0
 
     for concealed_parts in concealed_parts_list:
         for ind, concealed_part in enumerate(concealed_parts):
@@ -116,7 +119,7 @@ def _calculate_normal_divisions(hand: AgariHand):
             is_final_tile_open_triple = concealed_part[0] == PartType.CONCEALED_TRIPLE and not hand.is_tsumo_agari
             if is_final_tile_open_triple:
                 concealed_parts[ind] = (PartType.OPENED_TRIPLE, concealed_parts[ind][1])
-            divisions.append(Division(concealed_parts + call_parts, ind))
+            divisions.append(Division(concealed_parts + call_parts, ind, hand.agari_tile, is_opened))
             if is_final_tile_open_triple:
                 concealed_parts[ind] = (PartType.CONCEALED_TRIPLE, concealed_parts[ind][1])
 
