@@ -40,6 +40,12 @@ def _calculate_waiting_fu(part, agari_tile):
 
 
 def calculate_fu(division: Division, hand_info: HandInfo):
+    """
+    calculate fu
+    :param division: Division obj
+    :param hand_info: HandInfo obj
+    :return: int
+    """
     if len(division.parts) == 7:
         return 25
 
