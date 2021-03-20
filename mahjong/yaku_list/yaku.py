@@ -8,5 +8,8 @@ class Yaku(ABC):
     is_yakuman = None
 
     @abstractmethod
-    def _is_satisfied(self, division):
+    def is_satisfied(self, division, hand_info):
         pass
+
+    def get_han(self, is_opened):
+        return self.han_open if is_opened else self.han_closed

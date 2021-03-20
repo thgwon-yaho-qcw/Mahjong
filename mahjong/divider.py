@@ -20,6 +20,7 @@ class Division:
         self.parts = [self.Part(part_type, counts) for (part_type, counts) in divs]
         self.agari_tile_index = agari_tile_index
         self.agari_tile = agari_tile
+        # TODO: is_opened를 hand_info class로 이동
         self.is_opened = is_opened
 
 
