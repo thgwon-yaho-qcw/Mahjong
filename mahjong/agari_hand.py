@@ -1,4 +1,5 @@
 from mahjong.agari import is_agari
+from mahjong.convert import string_to_counts_and_call_counts
 from mahjong.hand import Hand
 from mahjong.validator import Validator
 

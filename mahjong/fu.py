@@ -56,12 +56,12 @@ def calculate_fu(division: Division, hand_info: HandInfo):
     waiting_part = division.parts[division.agari_tile_index]
     fu += _calculate_waiting_fu(waiting_part, division.agari_tile)
 
-    if fu == 20 and not division.is_opened:
+    if fu == 20 and not hand_info.is_opened:
         return fu + (0 if hand_info.is_tsumo else 10)
 
     if hand_info.is_tsumo:
         fu += 2
-    elif not division.is_opened:
+    elif not hand_info.is_opened:
         fu += 10
 
     return (fu + 9) // 10

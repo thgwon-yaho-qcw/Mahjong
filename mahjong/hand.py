@@ -49,7 +49,7 @@ class Hand:
         return self.counts[1]
 
     @property
-    def is_called(self):
+    def is_opened(self):
         return len(self.call_counts) > 0
 
     @property

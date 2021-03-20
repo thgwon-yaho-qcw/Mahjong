@@ -80,7 +80,7 @@ def _calculate_normal_shanten(hand: Hand):
 
 
 def _calculate_seven_pairs_shanten(hand: Hand) -> int:
-    if hand.is_called:
+    if hand.is_opened:
         return 100
 
     concealed_counts = hand.concealed_counts
@@ -91,7 +91,7 @@ def _calculate_seven_pairs_shanten(hand: Hand) -> int:
 
 
 def _calculate_thirteen_orphans_shanten(hand: Hand) -> int:
-    if hand.is_called:
+    if hand.is_opened:
         return 100
 
     concealed_counts = hand.concealed_counts
