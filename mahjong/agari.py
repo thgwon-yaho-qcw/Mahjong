@@ -16,7 +16,7 @@ def is_agari(hand: Hand) -> bool:
 
 
 def is_thirteen_orphan_agari(hand: Hand) -> bool:
-    if hand.is_called:
+    if hand.is_opened:
         return False
 
     concealed_counts = hand.concealed_counts
@@ -29,7 +29,7 @@ def is_thirteen_orphan_agari(hand: Hand) -> bool:
 
 
 def is_seven_pairs_agari(hand: Hand) -> bool:
-    if hand.is_called:
+    if hand.is_opened:
         return False
     pair_counts = len([t for t in Tile.ANY if hand.concealed_counts[t] == 2])
     return pair_counts == 7
