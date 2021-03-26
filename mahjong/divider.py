@@ -6,12 +6,12 @@ from mahjong.convert import counts_to_string
 
 class Division:
     class Part:
-        def __init__(self, part_type, counts):
-            self.part_type = part_type
+        def __init__(self, type_, counts):
+            self.type = type_
             self.counts = counts
 
         def __str__(self):
-            return '{} type : {}'.format(self.part_type, self.counts)
+            return '{} type : {}'.format(self.type, self.counts)
 
         def __repr__(self):
             return self.__str__()
