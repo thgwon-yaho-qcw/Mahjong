@@ -67,13 +67,6 @@ class PartType:
     OPENED_QUAD = 4
     CONCEALED_QUAD = 5
     THIRTEEN_ORPHANS = 6
-    FU_DICT = {HEAD: 0,
-               STRAIGHT: 0,
-               OPENED_TRIPLE: 2,
-               CONCEALED_TRIPLE: 4,
-               OPENED_QUAD: 8,
-               CONCEALED_QUAD: 16,
-               THIRTEEN_ORPHANS: 0}
 
 
 CALL_TYPE_TO_PART_TYPE = {CallType.CHI: PartType.STRAIGHT,
@@ -82,3 +75,24 @@ CALL_TYPE_TO_PART_TYPE = {CallType.CHI: PartType.STRAIGHT,
                           CallType.BIG_MELDED_KAN: PartType.OPENED_QUAD,
                           CallType.CONCEALED_KAN: PartType.CONCEALED_QUAD,
                           }
+
+
+class FuReason:
+    SEVEN_PAIRS = (25, '치또이츠')
+    BASE = (20, '부저')
+    HEAD_WAIT = (2, '단기 대기')
+    CLOSED_WAIT = (2, '간짱 대기')
+    EDGE_WAIT = (2, '변짱 대기')
+    CONCEALED_RON = (10, '멘젠 론')
+    TSUMO = (2, '쯔모')
+    DOUBLE_WIND_PAIR = (4, '연풍패 머리')
+    VALUE_PAIR = (2, '역패 머리')
+
+    OPENED_NORMAL_TRIPLE = (2, '중장패 밍커')
+    OPENED_OUTSIDE_TRIPLE = (4, '요구패 밍커')
+    CONCEALED_NORMAL_TRIPLE = (4, '중장패 안커')
+    CONCEALED_OUTSIDE_TRIPLE = (8, '요구패 안커')
+    OPENED_NORMAL_QUAD = (8, '중장패 밍깡')
+    OPENED_OUTSIDE_QUAD = (16, '요구패 밍깡')
+    CONCEALED_NORMAL_QUAD = (16, '중장패 안깡')
+    CONCEALED_OUTSIDE_QUAD = (32, '요구패 안깡')
