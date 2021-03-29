@@ -2,7 +2,7 @@ from mahjong.hand_info import HandInfo
 from mahjong.yaku_list.yaku import Yaku
 
 
-class LastDiscard(Yaku):
+class RobbingAQuad(Yaku):
     def __init__(self):
         self.han_open = 1
         self.han_concealed = 1

@@ -56,7 +56,7 @@ def calculate_fu(division: Division, hand_info: HandInfo, rule: Rule):
     :param division: Division obj
     :param hand_info: HandInfo obj
     :param rule: Rule obj
-    :return: int
+    :return: int, fu_info list
     """
 
     if len(division.parts) == 7:

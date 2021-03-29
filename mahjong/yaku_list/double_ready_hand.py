@@ -2,7 +2,7 @@ from mahjong.hand_info import HandInfo
 from mahjong.yaku_list.yaku import Yaku
 
 
-class ReadyHand(Yaku):
+class DoubleReadyHand(Yaku):
     def __init__(self):
         self.han_open = 0
         self.han_concealed = 2
