@@ -38,7 +38,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="#51-implement_rule_class" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -188,9 +188,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.fu" />
         <item itemvalue="Python.shanten" />
         <item itemvalue="Python.han" />
+        <item itemvalue="Python.fu" />
         <item itemvalue="Python.efficiency" />
         <item itemvalue="Python.divider" />
       </list>
