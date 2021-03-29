@@ -10,4 +10,4 @@ class SelfPick(Yaku):
         self.is_yakuman = False
 
     def is_satisfied(self, division: Division, hand_info: HandInfo):
-        return not hand_info.is_opened and hand_info.is_tsumo
+        return not division.is_opened and hand_info.is_tsumo
