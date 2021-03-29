@@ -1,6 +1,7 @@
 from mahjong.constants import Tile, PartType, FuReason
 from mahjong.divider import Division
 from mahjong.hand_info import HandInfo
+from mahjong.rule import Rule
 
 
 def _calculate_part_fu(part, hand_info):
@@ -49,11 +50,12 @@ def _calculate_waiting_fu(part, agari_tile):
     return None
 
 
-def calculate_fu(division: Division, hand_info: HandInfo):
+def calculate_fu(division: Division, hand_info: HandInfo, rule: Rule):
     """
     calculate fu
     :param division: Division obj
     :param hand_info: HandInfo obj
+    :param rule: Rule obj
     :return: int
     """
 
