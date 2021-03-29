@@ -1,6 +1,5 @@
-from mahjong.agari_hand import AgariHand
 from mahjong.constants import Tile, PartType, FuReason
-from mahjong.divider import Division, divide_hand
+from mahjong.divider import Division
 from mahjong.hand_info import HandInfo
 
 
@@ -72,12 +71,12 @@ def calculate_fu(division: Division, hand_info: HandInfo):
     if waiting_fu:
         fu_infos.append(waiting_fu)
 
-    if len(fu_infos) == 1 and not hand_info.is_opened:
+    if len(fu_infos) == 1 and not division.is_opened:
         if not hand_info.is_tsumo:
             fu_infos.append(FuReason.CONCEALED_RON)
     elif hand_info.is_tsumo:
         fu_infos.append(FuReason.TSUMO)
-    elif not hand_info.is_opened:
+    elif not division.is_opened:
         fu_infos.append(FuReason.CONCEALED_RON)
 
     fu = sum([fu_info[0] for fu_info in fu_infos])

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2011df-0f29-4755-8692-2e906021b291" name="Default Changelist" comment="feat: implement efficiency  calculator&#10;&#10;유효패 계산기를 구현&#10;&#10;Closes #12">
-      <change beforePath="$PROJECT_DIR$/mahjong/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mahjong/divider.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/divider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mahjong/fu.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/fu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mahjong/han.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/han.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mahjong/yaku_list/self_pick.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/yaku_list/self_pick.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616252842850</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="git ignore 수정">
+      <created>1616746410236</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1616746410236</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -435,7 +444,8 @@
     <MESSAGE value="feat: implement han calculating&#10;&#10;han 을 계산하는 함수를 작성.&#10;예시용으로 사용할 5개정도의 역을 미리 작성.&#10;&#10;Closes #39" />
     <MESSAGE value="fix: modify han calculation&#10;&#10;han 을 계산하는 함수 오류 수정&#10;&#10;Closes #44" />
     <MESSAGE value="refactor: refactoring is_open function&#10;&#10;division 클래스의 속성이던 is_open 속성을 hand_info로 옮김.&#10;&#10;Closes #41" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: refactoring is_open function&#10;&#10;division 클래스의 속성이던 is_open 속성을 hand_info로 옮김.&#10;&#10;Closes #41" />
+    <MESSAGE value="git ignore 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="git ignore 수정" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

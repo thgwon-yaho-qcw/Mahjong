@@ -16,10 +16,11 @@ class Division:
         def __repr__(self):
             return self.__str__()
 
-    def __init__(self, divs, agari_tile_index, agari_tile):
+    def __init__(self, divs, agari_tile_index, agari_tile, is_opened=False):
         self.parts = [self.Part(part_type, counts) for (part_type, counts) in divs]
         self.agari_tile_index = agari_tile_index
         self.agari_tile = agari_tile
+        self.is_opened = is_opened
 
 
 def _divide_bodies(index, counts, normal_parts_list, parts):
@@ -117,7 +118,7 @@ def _calculate_normal_divisions(hand: AgariHand):
             is_final_tile_open_triple = concealed_part[0] == PartType.CONCEALED_TRIPLE and not hand.is_tsumo_agari
             if is_final_tile_open_triple:
                 concealed_parts[ind] = (PartType.OPENED_TRIPLE, concealed_parts[ind][1])
-            divisions.append(Division(concealed_parts + call_parts, ind, hand.agari_tile))
+            divisions.append(Division(concealed_parts + call_parts, ind, hand.agari_tile, hand.is_opened))
             if is_final_tile_open_triple:
                 concealed_parts[ind] = (PartType.CONCEALED_TRIPLE, concealed_parts[ind][1])
 
