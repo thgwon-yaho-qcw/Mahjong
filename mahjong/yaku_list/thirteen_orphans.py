@@ -8,5 +8,5 @@ class ThirteenOrphans(Yaku):
         self.han_closed = 13
         self.is_yakuman = True
 
-    def is_satisfied(self, division: Division, hand_info):
+    def is_satisfied(self, division: Division, hand_info, rule):
         return len(division.parts) == 1
