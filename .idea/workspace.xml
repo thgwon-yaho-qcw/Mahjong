@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2011df-0f29-4755-8692-2e906021b291" name="Default Changelist" comment="feat: implement efficiency  calculator&#10;&#10;유효패 계산기를 구현&#10;&#10;Closes #12">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mahjong/divider.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/divider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mahjong/fu.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/fu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mahjong/han.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/han.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mahjong/yaku_list/self_pick.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/yaku_list/self_pick.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="#51-implement_rule_class" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -189,9 +186,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.fu" />
         <item itemvalue="Python.shanten" />
         <item itemvalue="Python.han" />
+        <item itemvalue="Python.fu" />
         <item itemvalue="Python.efficiency" />
         <item itemvalue="Python.divider" />
       </list>
