@@ -4,8 +4,6 @@
     <list default="true" id="9c2011df-0f29-4755-8692-2e906021b291" name="Default Changelist" comment="feat: implement efficiency  calculator&#10;&#10;유효패 계산기를 구현&#10;&#10;Closes #12">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mahjong/fu.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/fu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mahjong/han.py" beforeDir="false" afterPath="$PROJECT_DIR$/mahjong/han.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
