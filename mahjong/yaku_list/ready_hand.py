@@ -8,5 +8,5 @@ class ReadyHand(Yaku):
         self.han_closed = 1
         self.is_yakuman = False
 
-    def is_satisfied(self, division, hand_info: HandInfo):
+    def is_satisfied(self, division, hand_info: HandInfo, rule):
         return hand_info.is_ready_hand

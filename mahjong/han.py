@@ -19,14 +19,14 @@ def calculate_han(division: Division, hand_info: HandInfo):
     yaku_list, yakuman_list = _get_yaku_list()
 
     for yakuman in yakuman_list:
-        if yakuman.is_satisfied(division, hand_info):
+        if yakuman.is_satisfied(division, hand_info, None):
             han += yakuman.get_han(division.is_opened)
 
     if han > 0:
         return han, True
 
     for yaku in yaku_list:
-        if yaku.is_satisfied(division, hand_info):
+        if yaku.is_satisfied(division, hand_info, None):
             han += yaku.get_han(division.is_opened)
 
     return han, False
