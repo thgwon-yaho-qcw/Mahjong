@@ -8,7 +8,7 @@ from mahjong.yaku_list.yaku import Yaku
 class AllSimples(Yaku):
     def __init__(self):
         self.han_open = 1
-        self.han_closed = 1
+        self.han_concealed = 1
         self.is_yakuman = False
 
     def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
