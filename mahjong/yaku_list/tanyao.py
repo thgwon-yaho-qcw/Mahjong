@@ -5,7 +5,7 @@ from mahjong.rule import Rule
 from mahjong.yaku_list.yaku import Yaku
 
 
-class AllSimples(Yaku):
+class Tanyao(Yaku):
     def __init__(self):
         self.han_open = 1
         self.han_concealed = 1

@@ -5,7 +5,7 @@ from mahjong.yaku_list import *
 
 def _get_yaku_list():
     # TODO get yaku list 다시 구현
-    return [ReadyHand(), SelfPick(), AllSimples(), SevenPairs()], [ThirteenOrphans()]
+    return [Riichi(), Tsumo(), Tanyao(), Chiitoi()], [Kokushi()]
 
 
 def calculate_han(division: Division, hand_info: HandInfo, rule):
