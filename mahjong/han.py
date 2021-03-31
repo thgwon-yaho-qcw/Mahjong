@@ -1,6 +1,11 @@
 from mahjong.divider import Division
 from mahjong.hand_info import HandInfo
-from mahjong.yaku_list import *
+
+from mahjong.yaku_list.chiitoi import Chiitoi
+from mahjong.yaku_list.kokushi import Kokushi
+from mahjong.yaku_list.riichi import Riichi
+from mahjong.yaku_list.tanyao import Tanyao
+from mahjong.yaku_list.tsumo import Tsumo
 
 
 def _get_yaku_list():

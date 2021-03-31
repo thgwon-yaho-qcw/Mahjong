@@ -16,6 +16,12 @@ class Division:
         def __repr__(self):
             return self.__str__()
 
+        def __eq__(self, other):
+            if not isinstance(other, Division.Part):
+                return False
+            return self.type == other.type and self.counts == other.counts
+
+
     def __init__(self, divs, agari_tile_index, agari_tile, is_opened=False):
         self.parts = [self.Part(part_type, counts) for (part_type, counts) in divs]
         self.agari_tile_index = agari_tile_index
