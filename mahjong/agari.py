@@ -1,7 +1,7 @@
 from mahjong.constants import HandType, Tile
 from mahjong.error import TileCountError
 from mahjong.hand import Hand
-from mahjong.util import find_earlist_nonzero_index, modify_list
+from mahjong.util import find_earliest_nonzero_index, modify_list
 
 
 def is_agari(hand: Hand) -> bool:
@@ -40,7 +40,7 @@ def is_normal_agari(hand: Hand) -> bool:
 
 
 def _is_normal_agari_rec(index, counts, has_head):
-    index = find_earlist_nonzero_index(counts, index)
+    index = find_earliest_nonzero_index(counts, index)
     if index >= len(counts):
         return True
 

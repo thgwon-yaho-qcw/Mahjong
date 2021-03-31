@@ -1,7 +1,7 @@
 from mahjong.constants import Tile, HandType
 from mahjong.error import TileCountError
 from mahjong.hand import Hand
-from mahjong.util import find_earlist_nonzero_index, modify_list
+from mahjong.util import find_earliest_nonzero_index, modify_list
 
 
 def calculate_shanten(hand: Hand, use_seven_pairs=True, use_thirteen_orphans=True) -> int:
@@ -18,7 +18,7 @@ def calculate_shanten(hand: Hand, use_seven_pairs=True, use_thirteen_orphans=Tru
 
 
 def _erase_partial_set(index, counts, complete_sets, partial_sets, pair, best_shanten):
-    index = find_earlist_nonzero_index(counts, index)
+    index = find_earliest_nonzero_index(counts, index)
     if index >= len(Tile.ANY):
         current_shanten = 8 - (complete_sets * 2) - partial_sets - pair
         if current_shanten < best_shanten[0]:
@@ -45,7 +45,7 @@ def _erase_partial_set(index, counts, complete_sets, partial_sets, pair, best_sh
 
 
 def _erase_complete_set(index: int, counts, complete_sets, pair, best_shanten):
-    index = find_earlist_nonzero_index(counts, index)
+    index = find_earliest_nonzero_index(counts, index)
     if index >= len(Tile.ANY):
         _erase_partial_set(0, counts, complete_sets, 0, pair, best_shanten)
         return

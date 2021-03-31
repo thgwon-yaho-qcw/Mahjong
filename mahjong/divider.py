@@ -30,7 +30,7 @@ class Division:
 
 
 def _divide_bodies(index, counts, normal_parts_list, parts):
-    index = find_earlist_nonzero_index(counts, index)
+    index = find_earliest_nonzero_index(counts, index)
     if index >= len(Tile.ANY):
         normal_parts_list.append(parts[:])
         return

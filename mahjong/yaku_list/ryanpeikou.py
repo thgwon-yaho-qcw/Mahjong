@@ -9,7 +9,7 @@ from mahjong.yaku_list.yaku import Yaku
 class Ryanpeikou(Yaku):
     def __init__(self):
         self.han_open = 0
-        self.han_closed = 1
+        self.han_closed = 3
         self.is_yakuman = False
 
     def is_satisfied(self, division: Division, hand_info: HandInfo, rule):
