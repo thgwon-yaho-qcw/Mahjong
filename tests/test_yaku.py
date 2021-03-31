@@ -9,10 +9,14 @@ import pytest
 from mahjong.yaku_list.iipeikou import Iipeikou
 from mahjong.yaku_list.ittsuu import Ittsuu
 from mahjong.yaku_list.ryanpeikou import Ryanpeikou
+from mahjong.yaku_list.sanankou import Sanankou
+from mahjong.yaku_list.sankantsu import Sankantsu
 from mahjong.yaku_list.sanshoku import Sanshoku
+from mahjong.yaku_list.sanshoku_doukou import SanshokuDoukou
 from mahjong.yaku_list.tanyao import Tanyao
 
 # TODO: 핑후 TC 작성
+from mahjong.yaku_list.toitoi import Toitoi
 
 
 @pytest.mark.parametrize('test_input, agari_tile, expected', [
@@ -80,4 +84,70 @@ def test_ittsuu(test_input, agari_tile, expected):
     for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Ittsuu().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('22244466688899m', Tile.MAN2, True),
+    ('22m,pon333p,bmk5555p,cnk1111z,smk3333z', Tile.MAN2, True),
+    ('22223333444455m', Tile.MAN2, False),
+    ('22334455m111z,chi234m', Tile.MAN2, False),
+ ])
+def test_toitoi(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Toitoi().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('22244466678889m', Tile.MAN2, True),
+    ('22m111444p789s,cnk2222z', Tile.MAN2, True),
+    ('222m444666p88s,chi123p', Tile.MAN2, True),
+    ('22244466688899m', Tile.MAN2, False),
+ ])
+def test_sanankou_tsumo(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Sanankou().is_satisfied(division, HandInfo(is_tsumo=True), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('22244466678889m', Tile.MAN2, False),
+    ('22m111444p789s,cnk2222z', Tile.MAN2, True),
+    ('222m444666p88s,chi123p', Tile.MAN2, False),
+    ('22244466688899m', Tile.MAN2, True),
+ ])
+def test_sanankou_ron(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
+        result |= Sanankou().is_satisfied(division, HandInfo(is_tsumo=False), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('222m222p22278999s', Tile.MAN2, True),
+    ('222m11z,cnk2222p,pon222s,chi123s', Tile.MAN2, True),
+    ('22234m222p222333s', Tile.MAN2, False),
+    ('222m222p333s22233z', Tile.MAN2, False),
+])
+def test_sanshoku_doukou(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= SanshokuDoukou().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('22m,cnk1111z,cnk2222z,cnk3333z,chi789s', Tile.MAN2, True),
+    ('222m11z,cnk2222p,bmk2222s,smk2222z', Tile.MAN2, True),
+    ('22m,cnk1111p,smk2222p,cnk3333p,bmk4444p', Tile.MAN2, False),
+    ('22223488m,smk1111z,smk2222z', Tile.MAN2, False),
+])
+def test_sankantsu(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Sankantsu().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
 

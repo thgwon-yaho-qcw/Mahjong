@@ -21,6 +21,17 @@ class Division:
                 return False
             return self.type == other.type and self.counts == other.counts
 
+        @property
+        def is_triple(self):
+            return self.type in [PartType.CONCEALED_TRIPLE, PartType.OPENED_TRIPLE]
+
+        @property
+        def is_quad(self):
+            return self.type in [PartType.CONCEALED_QUAD, PartType.OPENED_QUAD]
+
+        @property
+        def is_triple_or_quad(self):
+            return self.is_triple or self.is_quad
 
     def __init__(self, divs, agari_tile_index, agari_tile, is_opened=False):
         self.parts = [self.Part(part_type, counts) for (part_type, counts) in divs]
