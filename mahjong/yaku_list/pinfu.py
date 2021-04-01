@@ -16,10 +16,10 @@ class Pinfu(Yaku):
             return False
 
         _, fu_info = calculate_fu(division, hand_info, rule)
-        if len(fu_info) == 1 and fu_info == [FuReason.BASE] and hand_info.is_tsumo:
+        if len(fu_info) == 1 and fu_info == [FuReason.BASE] and hand_info.is_tsumo_agari:
             return True
 
-        if len(fu_info) == 2 and fu_info == [FuReason.BASE, FuReason.CONCEALED_RON] and not hand_info.is_tsumo:
+        if len(fu_info) == 2 and fu_info == [FuReason.BASE, FuReason.CONCEALED_RON] and not hand_info.is_tsumo_agari:
             return True
 
         return False

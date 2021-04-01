@@ -24,7 +24,7 @@ from mahjong.yaku_list.tsuuiisou import Tsuuiisou
 def test_suuankou_tsumo(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Suuankou().is_satisfied(division, HandInfo(is_tsumo=True), Rule())
+        result |= Suuankou().is_satisfied(division, HandInfo(is_tsumo_agari=True), Rule())
     assert result == expected
 
 
@@ -36,7 +36,7 @@ def test_suuankou_tsumo(test_input, agari_tile, expected):
 def test_suuankou_ron(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
-        result |= Suuankou().is_satisfied(division, HandInfo(is_tsumo=False), Rule())
+        result |= Suuankou().is_satisfied(division, HandInfo(is_tsumo_agari=False), Rule())
     assert result == expected
 
 
