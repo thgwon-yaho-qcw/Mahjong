@@ -6,8 +6,10 @@ from mahjong.shanten import *
 import pytest
 
 from mahjong.yaku_list.chinrotou import Chinrotou
+from mahjong.yaku_list.chuuren import Chuuren
 from mahjong.yaku_list.daisangen import Daisangen
 from mahjong.yaku_list.daisuushii import Daisuushii
+from mahjong.yaku_list.ryuuiisou import Ryuuiisou
 from mahjong.yaku_list.shousuushii import Shousuushii
 from mahjong.yaku_list.suuankou import Suuankou
 from mahjong.yaku_list.suukantsu import Suukantsu
@@ -45,7 +47,7 @@ def test_suuankou_ron(test_input, agari_tile, expected):
  ])
 def test_daisangen(test_input, agari_tile, expected):
     result = False
-    for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Daisangen().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
 
@@ -58,7 +60,7 @@ def test_daisangen(test_input, agari_tile, expected):
  ])
 def test_shousuushii(test_input, agari_tile, expected):
     result = False
-    for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Shousuushii().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
 
@@ -71,7 +73,7 @@ def test_shousuushii(test_input, agari_tile, expected):
  ])
 def test_daisuushii(test_input, agari_tile, expected):
     result = False
-    for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Daisuushii().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
 
@@ -84,7 +86,7 @@ def test_daisuushii(test_input, agari_tile, expected):
  ])
 def test_tsuuiisou(test_input, agari_tile, expected):
     result = False
-    for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Tsuuiisou().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
 
@@ -96,7 +98,7 @@ def test_tsuuiisou(test_input, agari_tile, expected):
  ])
 def test_chinrotou(test_input, agari_tile, expected):
     result = False
-    for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Chinrotou().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
 
@@ -106,6 +108,30 @@ def test_chinrotou(test_input, agari_tile, expected):
 ])
 def test_suukantsu(test_input, agari_tile, expected):
     result = False
-    for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Suukantsu().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('22233344466688s', Tile.SOU2, True),
+    ('22334466688s,pon666z', Tile.SOU2, True),
+    ('66z,chi234s,chi234s,chi234s,chi234s',Tile.HATSU, True)
+])
+def test_ryuuiisou(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Ryuuiisou().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('11123455678999s', Tile.SOU2, True),
+    ('11112345678999m', Tile.MAN2, True),
+    ('11123456788p,pon999p',Tile.PIN2, False)
+])
+def test_chuuren(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Chuuren().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
