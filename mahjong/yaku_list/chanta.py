@@ -5,18 +5,18 @@ from mahjong.rule import Rule
 from mahjong.yaku_list.yaku import Yaku
 
 
-class AllSimples(Yaku):
+class Chanta(Yaku):
     def __init__(self):
         self.han_open = 1
-        self.han_closed = 1
+        self.han_concealed = 2
         self.is_yakuman = False
 
     def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
-        terminals_and_honors_count = 0
+        honors_count = 0
         for part in division.parts:
-            terminals_and_honors_count += sum(part.counts[t] for t in Tile.TERMINALS_AND_HONORS)
+            terminals_and_honors_count = sum(part.counts[t] for t in Tile.TERMINALS_AND_HONORS)
+            honors_count += sum(part.counts[t] for t in Tile.HONORS)
+            if terminals_and_honors_count == 0:
+                return False
 
-        if terminals_and_honors_count != 0:
-            return False
-
-        return rule.has_opened_all_simple or not division.is_opened
+        return honors_count > 0

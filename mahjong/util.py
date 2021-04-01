@@ -1,4 +1,4 @@
-def find_earlist_nonzero_index(arr, index=0):
+def find_earliest_nonzero_index(arr, index=0):
     while index < len(arr) and arr[index] == 0:
         index += 1
     return index

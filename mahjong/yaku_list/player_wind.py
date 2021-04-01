@@ -3,11 +3,14 @@ from mahjong.hand_info import HandInfo
 from mahjong.yaku_list.yaku import Yaku
 
 
-class SelfPick(Yaku):
+class PlayerWind(Yaku):
     def __init__(self):
-        self.han_open = 0
+        self.han_open = 1
         self.han_closed = 1
         self.is_yakuman = False
 
     def is_satisfied(self, division: Division, hand_info: HandInfo, rule):
-        return not division.is_opened and hand_info.is_tsumo
+        for part in division.parts:
+            if part.is_triple_or_quad and part.counts[hand_info.player_wind] >= 3:
+                return True
+        return False

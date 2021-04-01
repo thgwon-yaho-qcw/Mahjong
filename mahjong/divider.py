@@ -16,6 +16,23 @@ class Division:
         def __repr__(self):
             return self.__str__()
 
+        def __eq__(self, other):
+            if not isinstance(other, Division.Part):
+                return False
+            return self.type == other.type and self.counts == other.counts
+
+        @property
+        def is_triple(self):
+            return self.type in [PartType.CONCEALED_TRIPLE, PartType.OPENED_TRIPLE]
+
+        @property
+        def is_quad(self):
+            return self.type in [PartType.CONCEALED_QUAD, PartType.OPENED_QUAD]
+
+        @property
+        def is_triple_or_quad(self):
+            return self.is_triple or self.is_quad
+
     def __init__(self, divs, agari_tile_index, agari_tile, is_opened=False):
         self.parts = [self.Part(part_type, counts) for (part_type, counts) in divs]
         self.agari_tile_index = agari_tile_index
@@ -24,7 +41,7 @@ class Division:
 
 
 def _divide_bodies(index, counts, normal_parts_list, parts):
-    index = find_earlist_nonzero_index(counts, index)
+    index = find_earliest_nonzero_index(counts, index)
     if index >= len(Tile.ANY):
         normal_parts_list.append(parts[:])
         return

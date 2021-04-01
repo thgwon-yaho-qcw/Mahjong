@@ -56,7 +56,7 @@ def calculate_fu(division: Division, hand_info: HandInfo, rule: Rule):
     :param division: Division obj
     :param hand_info: HandInfo obj
     :param rule: Rule obj
-    :return: int
+    :return: int, fu_info list
     """
 
     if len(division.parts) == 7:
@@ -74,9 +74,9 @@ def calculate_fu(division: Division, hand_info: HandInfo, rule: Rule):
         fu_infos.append(waiting_fu)
 
     if len(fu_infos) == 1 and not division.is_opened:
-        if not hand_info.is_tsumo:
+        if not hand_info.is_tsumo_agari:
             fu_infos.append(FuReason.CONCEALED_RON)
-    elif hand_info.is_tsumo:
+    elif hand_info.is_tsumo_agari:
         fu_infos.append(FuReason.TSUMO)
     elif not division.is_opened:
         fu_infos.append(FuReason.CONCEALED_RON)
