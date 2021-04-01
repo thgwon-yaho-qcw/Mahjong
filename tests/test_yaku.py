@@ -6,12 +6,16 @@ from mahjong.shanten import *
 import pytest
 
 from mahjong.yaku_list.chanta import Chanta
+from mahjong.yaku_list.chinitsu import Chinitsu
 from mahjong.yaku_list.chun import Chun
 from mahjong.yaku_list.haku import Haku
 from mahjong.yaku_list.hatsu import Hatsu
+from mahjong.yaku_list.honitsu import Honitsu
+from mahjong.yaku_list.honrou import Honrou
 from mahjong.yaku_list.iipeikou import Iipeikou
 from mahjong.yaku_list.ittsuu import Ittsuu
 from mahjong.yaku_list.junchan import Junchan
+from mahjong.yaku_list.shousangen import Shousangen
 from mahjong.yaku_list.pinfu import Pinfu
 from mahjong.yaku_list.ryanpeikou import Ryanpeikou
 from mahjong.yaku_list.sanankou import Sanankou
@@ -226,3 +230,54 @@ def test_junchan(test_input, agari_tile, expected):
     for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Junchan().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('12399m,chi123p,cnk7777z,chi789s', Tile.MAN2, False),
+    ('11199m111999p111z', Tile.MAN1, True),
+    ('11199m111999p111s', Tile.MAN1, False),
+    ('1199m1199p1199s11z', Tile.MAN1, True),
+    ('111222333m99p999s', Tile.MAN2, False),
+    ('11122233m999p999s', Tile.MAN2, False),
+])
+def test_honrou(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Honrou().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('12399m,pon555z,cnk7777z,pon666z', Tile.MAN2, False),
+    ('123m55z,chi123p,cnk7777z,pon666z', Tile.MAN2, True),
+    ('11223399m556677z', Tile.MAN2, False),
+])
+def test_shousangen(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Shousangen().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('12399m,pon555z,cnk3333z,pon666z', Tile.MAN2, True),
+    ('11223355778899p', Tile.MAN2, False),
+    ('11223399s556677z', Tile.MAN2, True),
+])
+def test_honitsu(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Honitsu().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('12399m,pon555z,cnk3333z,pon666z', Tile.MAN2, False),
+    ('11223355778899p', Tile.MAN2, True),
+    ('11223399s556677z', Tile.MAN2, False),
+])
+def test_chinitsu(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Chinitsu().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
