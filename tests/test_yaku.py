@@ -5,11 +5,13 @@ from mahjong.rule import Rule
 from mahjong.shanten import *
 import pytest
 
+from mahjong.yaku_list.chanta import Chanta
 from mahjong.yaku_list.chun import Chun
 from mahjong.yaku_list.haku import Haku
 from mahjong.yaku_list.hatsu import Hatsu
 from mahjong.yaku_list.iipeikou import Iipeikou
 from mahjong.yaku_list.ittsuu import Ittsuu
+from mahjong.yaku_list.junchan import Junchan
 from mahjong.yaku_list.pinfu import Pinfu
 from mahjong.yaku_list.ryanpeikou import Ryanpeikou
 from mahjong.yaku_list.sanankou import Sanankou
@@ -195,4 +197,32 @@ def test_chun(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
         result |= Chun().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('12399m,chi123p,cnk7777z,chi789s', Tile.MAN2, True),
+    ('11199m111999p111z', Tile.MAN1, True),
+    ('11199m111999p111s', Tile.MAN1, False),
+    ('111222333m99p999s', Tile.MAN2, False),
+    ('11122233m999p999s', Tile.MAN2, False),
+])
+def test_chanta(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Chanta().is_satisfied(division, HandInfo(), Rule())
+    assert result == expected
+
+
+@pytest.mark.parametrize('test_input, agari_tile, expected', [
+    ('12399m,chi123p,cnk7777z,chi789s', Tile.MAN2, False),
+    ('11199m111999p111z', Tile.MAN1, False),
+    ('11199m111999p111s', Tile.MAN1, True),
+    ('111222333m99p999s', Tile.MAN2, True),
+    ('11122233m999p999s', Tile.MAN2, False),
+])
+def test_junchan(test_input, agari_tile, expected):
+    result = False
+    for division in divide_hand(AgariHand(test_input, agari_tile)):
+        result |= Junchan().is_satisfied(division, HandInfo(), Rule())
     assert result == expected
