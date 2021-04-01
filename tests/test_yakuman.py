@@ -5,15 +5,15 @@ from mahjong.rule import Rule
 from mahjong.shanten import *
 import pytest
 
-from mahjong.yaku_list.chinrotou import Chinrotou
-from mahjong.yaku_list.chuuren import Chuuren
-from mahjong.yaku_list.daisangen import Daisangen
-from mahjong.yaku_list.daisuushii import Daisuushii
-from mahjong.yaku_list.ryuuiisou import Ryuuiisou
-from mahjong.yaku_list.shousuushii import Shousuushii
-from mahjong.yaku_list.suuankou import Suuankou
-from mahjong.yaku_list.suukantsu import Suukantsu
-from mahjong.yaku_list.tsuuiisou import Tsuuiisou
+from mahjong.yaku_checker.chinrotou import Chinrotou
+from mahjong.yaku_checker.chuuren import Chuuren
+from mahjong.yaku_checker.daisangen import Daisangen
+from mahjong.yaku_checker.daisuushii import Daisuushii
+from mahjong.yaku_checker.ryuuiisou import Ryuuiisou
+from mahjong.yaku_checker.shousuushii import Shousuushii
+from mahjong.yaku_checker.suuankou import Suuankou
+from mahjong.yaku_checker.suukantsu import Suukantsu
+from mahjong.yaku_checker.tsuuiisou import Tsuuiisou
 
 
 @pytest.mark.parametrize('test_input, agari_tile, expected', [

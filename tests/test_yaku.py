@@ -5,25 +5,25 @@ from mahjong.rule import Rule
 from mahjong.shanten import *
 import pytest
 
-from mahjong.yaku_list.chanta import Chanta
-from mahjong.yaku_list.chinitsu import Chinitsu
-from mahjong.yaku_list.chun import Chun
-from mahjong.yaku_list.haku import Haku
-from mahjong.yaku_list.hatsu import Hatsu
-from mahjong.yaku_list.honitsu import Honitsu
-from mahjong.yaku_list.honrou import Honrou
-from mahjong.yaku_list.iipeikou import Iipeikou
-from mahjong.yaku_list.ittsuu import Ittsuu
-from mahjong.yaku_list.junchan import Junchan
-from mahjong.yaku_list.shousangen import Shousangen
-from mahjong.yaku_list.pinfu import Pinfu
-from mahjong.yaku_list.ryanpeikou import Ryanpeikou
-from mahjong.yaku_list.sanankou import Sanankou
-from mahjong.yaku_list.sankantsu import Sankantsu
-from mahjong.yaku_list.sanshoku import Sanshoku
-from mahjong.yaku_list.sanshoku_doukou import SanshokuDoukou
-from mahjong.yaku_list.tanyao import Tanyao
-from mahjong.yaku_list.toitoi import Toitoi
+from mahjong.yaku_checker.chanta import Chanta
+from mahjong.yaku_checker.chinitsu import Chinitsu
+from mahjong.yaku_checker.chun import Chun
+from mahjong.yaku_checker.haku import Haku
+from mahjong.yaku_checker.hatsu import Hatsu
+from mahjong.yaku_checker.honitsu import Honitsu
+from mahjong.yaku_checker.honrou import Honrou
+from mahjong.yaku_checker.iipeikou import Iipeikou
+from mahjong.yaku_checker.ittsuu import Ittsuu
+from mahjong.yaku_checker.junchan import Junchan
+from mahjong.yaku_checker.shousangen import Shousangen
+from mahjong.yaku_checker.pinfu import Pinfu
+from mahjong.yaku_checker.ryanpeikou import Ryanpeikou
+from mahjong.yaku_checker.sanankou import Sanankou
+from mahjong.yaku_checker.sankantsu import Sankantsu
+from mahjong.yaku_checker.sanshoku import Sanshoku
+from mahjong.yaku_checker.sanshoku_doukou import SanshokuDoukou
+from mahjong.yaku_checker.tanyao import Tanyao
+from mahjong.yaku_checker.toitoi import Toitoi
 
 
 @pytest.mark.parametrize('test_input, agari_tile, expected', [
