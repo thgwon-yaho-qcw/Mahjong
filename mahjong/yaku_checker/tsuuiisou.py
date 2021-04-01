@@ -6,12 +6,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Tsuuiisou(Yaku):
-    def __init__(self):
-        self.han_open = 13
-        self.han_concealed = 13
-        self.is_yakuman = True
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         for part in division.parts:
             non_honors_count = sum(part.counts[t] for t in Tile.MANS + Tile.SOUS + Tile.PINS)
             if non_honors_count > 0:

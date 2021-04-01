@@ -5,12 +5,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Hatsu(Yaku):
-    def __init__(self):
-        self.han_open = 1
-        self.han_closed = 1
-        self.is_yakuman = False
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         for part in division.parts:
             if part.is_triple_or_quad and part.counts[Tile.HATSU] >= 3:
                 return True

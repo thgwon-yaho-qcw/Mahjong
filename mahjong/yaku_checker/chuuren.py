@@ -7,13 +7,8 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Chuuren(Yaku):
-    def __init__(self):
-        self.han_open = 13
-        self.han_concealed = 13
-        self.is_yakuman = True
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
-        if not Chinitsu().is_satisfied(division, hand_info, rule) or division.is_opened:
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
+        if not Chinitsu().is_satisfied(division, hand_info) or division.is_opened:
             return False
 
         hand_shape = [0] * 9

@@ -6,16 +6,11 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Pinfu(Yaku):
-    def __init__(self):
-        self.han_open = 0
-        self.han_closed = 1
-        self.is_yakuman = False
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         if division.is_opened:
             return False
 
-        _, fu_info = calculate_fu(division, hand_info, rule)
+        _, fu_info = calculate_fu(division, hand_info, self.rule)
         if len(fu_info) == 1 and fu_info == [FuReason.BASE] and hand_info.is_tsumo_agari:
             return True
 

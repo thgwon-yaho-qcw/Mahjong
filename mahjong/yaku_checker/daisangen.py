@@ -6,12 +6,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Daisangen(Yaku):
-    def __init__(self):
-        self.han_open = 13
-        self.han_concealed = 13
-        self.is_yakuman = True
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         if len(division.parts) != 5:
             return False
 

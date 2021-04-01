@@ -4,12 +4,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Toitoi(Yaku):
-    def __init__(self):
-        self.han_open = 2
-        self.han_concealed = 2
-        self.is_yakuman = False
-
-    def is_satisfied(self, division, hand_info: HandInfo, rule):
+    def is_satisfied(self, division, hand_info: HandInfo):
         if len(division.parts) != 5:
             return False
         for part in division.parts:

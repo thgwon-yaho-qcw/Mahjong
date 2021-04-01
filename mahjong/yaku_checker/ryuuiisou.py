@@ -6,12 +6,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Ryuuiisou(Yaku):
-    def __init__(self):
-        self.han_open = 13
-        self.han_concealed = 13
-        self.is_yakuman = True
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         non_greens = (t for t in Tile.ANY if t not in Tile.GREENS)
         for part in division.parts:
             non_greens_count = sum(part.counts[t] for t in non_greens)

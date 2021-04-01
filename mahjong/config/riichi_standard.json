@@ -1,0 +1,301 @@
+{
+  "has_opened_tanyao": true,
+  "yaku_list": {
+    "chankan": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "chanta": {
+      "han_opened": 1,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "junchan",
+        "honrou",
+        "chinrotou",
+        "tsuuiisou"
+      ]
+    },
+    "chiihou": {
+      "han_opened": 0,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "chiitoi": {
+      "han_opened": 0,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "chinitsu": {
+      "han_opened": 5,
+      "han_concealed": 6,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "chuuren"
+      ]
+    },
+    "chinrotou": {
+      "han_opened": 13,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "chun": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "daisangen"
+      ]
+    },
+    "chuuren": {
+      "han_opened": 0,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "daisangen": {
+      "han_opened": 13,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "daisuushii": {
+      "han_opened": 13,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "double_riichi": {
+      "han_opened": 0,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "haitei": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "haku": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "daisangen"
+      ]
+    },
+    "hatsu": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "daisangen"
+      ]
+    },
+    "honitsu": {
+      "han_opened": 2,
+      "han_concealed": 3,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "chinitsu",
+        "tsuuiisou",
+        "ryuuiisou",
+        "chuuren"
+      ]
+    },
+    "honrou": {
+      "han_opened": 2,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "chinrotou",
+        "tsuuiisou"
+      ]
+    },
+    "houtei": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "iipeikou": {
+      "han_opened": 0,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "ryanpeikou"
+      ]
+    },
+    "ippatsu": {
+      "han_opened": 0,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "ittsuu": {
+      "han_opened": 1,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "junchan": {
+      "han_opened": 2,
+      "han_concealed": 3,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "chinrotou"
+      ]
+    },
+    "kokushi": {
+      "han_opened": 0,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "pinfu": {
+      "han_opened": 0,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "player_wind": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "daisuushii"
+      ]
+    },
+    "renhou": {
+      "han_opened": 0,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "riichi": {
+      "han_opened": 0,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "rinshan": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "round_wind": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "daisuushii"
+      ]
+    },
+    "ryanpeikou": {
+      "han_opened": 0,
+      "han_concealed": 3,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "ryuuiisou": {
+      "han_opened": 13,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "sanankou": {
+      "han_opened": 2,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "suuankou"
+      ]
+    },
+    "sankantsu": {
+      "han_opened": 2,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "suukantsu"
+      ]
+    },
+    "sanshoku": {
+      "han_opened": 1,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "sanshoku_doukou": {
+      "han_opened": 2,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "shousangen": {
+      "han_opened": 2,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "shousuushii": {
+      "han_opened": 0,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "suuankou": {
+      "han_opened": 0,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "suukantsu": {
+      "han_opened": 13,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "tanyao": {
+      "han_opened": 1,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": []
+    },
+    "tenhou": {
+      "han_opened": 0,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    },
+    "toitoi": {
+      "han_opened": 2,
+      "han_concealed": 2,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "suuankou"
+      ]
+    },
+    "tsumo": {
+      "han_opened": 0,
+      "han_concealed": 1,
+      "is_yakuman": false,
+      "upper_yaku": [
+        "tenhou",
+        "chiihou"
+      ]
+    },
+    "tsuuiisou": {
+      "han_opened": 13,
+      "han_concealed": 13,
+      "is_yakuman": true,
+      "upper_yaku": []
+    }
+  }
+}

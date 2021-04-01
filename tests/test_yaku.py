@@ -35,7 +35,7 @@ from mahjong.yaku_checker.toitoi import Toitoi
 def test_pinfu(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Pinfu().is_satisfied(division, HandInfo(), Rule())
+        result |= Pinfu().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -48,7 +48,7 @@ def test_pinfu(test_input, agari_tile, expected):
 def test_tanyao(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Tanyao().is_satisfied(division, HandInfo(), Rule())
+        result |= Tanyao().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -61,7 +61,7 @@ def test_tanyao(test_input, agari_tile, expected):
 def test_iipeikou(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Iipeikou().is_satisfied(division, HandInfo(), Rule())
+        result |= Iipeikou().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -74,7 +74,7 @@ def test_iipeikou(test_input, agari_tile, expected):
 def test_ryanpeikou(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Ryanpeikou().is_satisfied(division, HandInfo(), Rule())
+        result |= Ryanpeikou().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -88,7 +88,7 @@ def test_ryanpeikou(test_input, agari_tile, expected):
 def test_sanshoku(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Sanshoku().is_satisfied(division, HandInfo(), Rule())
+        result |= Sanshoku().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -102,7 +102,7 @@ def test_sanshoku(test_input, agari_tile, expected):
 def test_ittsuu(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Ittsuu().is_satisfied(division, HandInfo(), Rule())
+        result |= Ittsuu().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -115,7 +115,7 @@ def test_ittsuu(test_input, agari_tile, expected):
 def test_toitoi(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Toitoi().is_satisfied(division, HandInfo(), Rule())
+        result |= Toitoi().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -128,7 +128,7 @@ def test_toitoi(test_input, agari_tile, expected):
 def test_sanankou_tsumo(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Sanankou().is_satisfied(division, HandInfo(is_tsumo_agari=True), Rule())
+        result |= Sanankou().is_satisfied(division, HandInfo(is_tsumo_agari=True))
     assert result == expected
 
 
@@ -141,7 +141,7 @@ def test_sanankou_tsumo(test_input, agari_tile, expected):
 def test_sanankou_ron(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
-        result |= Sanankou().is_satisfied(division, HandInfo(is_tsumo_agari=False), Rule())
+        result |= Sanankou().is_satisfied(division, HandInfo(is_tsumo_agari=False))
     assert result == expected
 
 
@@ -154,7 +154,7 @@ def test_sanankou_ron(test_input, agari_tile, expected):
 def test_sanshoku_doukou(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= SanshokuDoukou().is_satisfied(division, HandInfo(), Rule())
+        result |= SanshokuDoukou().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -167,7 +167,7 @@ def test_sanshoku_doukou(test_input, agari_tile, expected):
 def test_sankantsu(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Sankantsu().is_satisfied(division, HandInfo(), Rule())
+        result |= Sankantsu().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -178,7 +178,7 @@ def test_sankantsu(test_input, agari_tile, expected):
 def test_haku(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Haku().is_satisfied(division, HandInfo(), Rule())
+        result |= Haku().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -189,7 +189,7 @@ def test_haku(test_input, agari_tile, expected):
 def test_hatsu(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Hatsu().is_satisfied(division, HandInfo(), Rule())
+        result |= Hatsu().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -200,7 +200,7 @@ def test_hatsu(test_input, agari_tile, expected):
 def test_chun(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Chun().is_satisfied(division, HandInfo(), Rule())
+        result |= Chun().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -214,7 +214,7 @@ def test_chun(test_input, agari_tile, expected):
 def test_chanta(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Chanta().is_satisfied(division, HandInfo(), Rule())
+        result |= Chanta().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -228,7 +228,7 @@ def test_chanta(test_input, agari_tile, expected):
 def test_junchan(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Junchan().is_satisfied(division, HandInfo(), Rule())
+        result |= Junchan().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -243,7 +243,7 @@ def test_junchan(test_input, agari_tile, expected):
 def test_honrou(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Honrou().is_satisfied(division, HandInfo(), Rule())
+        result |= Honrou().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -255,7 +255,7 @@ def test_honrou(test_input, agari_tile, expected):
 def test_shousangen(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Shousangen().is_satisfied(division, HandInfo(), Rule())
+        result |= Shousangen().is_satisfied(division, HandInfo())
     assert result == expected
 
 
@@ -267,7 +267,7 @@ def test_shousangen(test_input, agari_tile, expected):
 def test_honitsu(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Honitsu().is_satisfied(division, HandInfo(), Rule())
+        result |= Honitsu().is_satisfied(division, HandInfo())
     assert result == expected
 
 @pytest.mark.parametrize('test_input, agari_tile, expected', [
@@ -278,6 +278,6 @@ def test_honitsu(test_input, agari_tile, expected):
 def test_chinitsu(test_input, agari_tile, expected):
     result = False
     for division in divide_hand(AgariHand(test_input, agari_tile)):
-        result |= Chinitsu().is_satisfied(division, HandInfo(), Rule())
+        result |= Chinitsu().is_satisfied(division, HandInfo())
     assert result == expected
 

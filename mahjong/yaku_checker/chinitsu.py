@@ -6,12 +6,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Chinitsu(Yaku):
-    def __init__(self):
-        self.han_open = 5
-        self.han_concealed = 6
-        self.is_yakuman = False
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         mans_count = 0
         pins_count = 0
         sous_count = 0

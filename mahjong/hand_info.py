@@ -1,3 +1,6 @@
+from mahjong.constants import Tile
+
+
 class HandInfo:
     def __init__(
             self,
@@ -14,8 +17,8 @@ class HandInfo:
             is_first_turn=False
     ):
         self.is_tsumo_agari = is_tsumo_agari
-        self.round_wind = round_wind
-        self.player_wind = player_wind
+        self.round_wind = Tile.EAST if round_wind is None else round_wind
+        self.player_wind = Tile.EAST if player_wind is None else player_wind
         self.is_ready_hand = is_ready_hand
         self.is_double_ready_hand = is_double_ready_hand
         self.is_one_shot = is_one_shot

@@ -6,12 +6,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Chanta(Yaku):
-    def __init__(self):
-        self.han_open = 1
-        self.han_concealed = 2
-        self.is_yakuman = False
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         honors_count = 0
         for part in division.parts:
             terminals_and_honors_count = sum(part.counts[t] for t in Tile.TERMINALS_AND_HONORS)

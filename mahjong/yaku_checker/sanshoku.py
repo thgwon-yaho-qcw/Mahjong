@@ -8,12 +8,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Sanshoku(Yaku):
-    def __init__(self):
-        self.han_open = 1
-        self.han_closed = 2
-        self.is_yakuman = False
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         for part1, part2, part3 in tuple(itertools.combinations(division.parts, 3)):
             if not (part1.type == part2.type == part3.type == PartType.STRAIGHT):
                 continue

@@ -3,10 +3,5 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Ippatsu(Yaku):
-    def __init__(self):
-        self.han_open = 0
-        self.han_concealed = 1
-        self.is_yakuman = False
-
-    def is_satisfied(self, division, hand_info: HandInfo, rule):
+    def is_satisfied(self, division, hand_info: HandInfo):
         return hand_info.is_one_shot

@@ -6,12 +6,7 @@ from mahjong.yaku_checker.yaku import Yaku
 
 
 class Junchan(Yaku):
-    def __init__(self):
-        self.han_open = 2
-        self.han_concealed = 3
-        self.is_yakuman = False
-
-    def is_satisfied(self, division: Division, hand_info: HandInfo, rule: Rule):
+    def is_satisfied(self, division: Division, hand_info: HandInfo):
         for part in division.parts:
             terminals_count = sum(part.counts[t] for t in Tile.TERMINALS)
             if terminals_count == 0:
