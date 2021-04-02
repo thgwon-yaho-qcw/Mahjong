@@ -13,22 +13,25 @@ def calculate_han(division: Division, hand_info: HandInfo, rule):
     :param division: Division obj
     :param hand_info: HandInfo obj
     :param rule: Rule obj
-    :return: int, boolean
+    :return: int, list of tuple(int, str), boolean
     """
     han = 0
     yaku_loader = YakuLoader(rule)
     yaku_list, yakuman_list = yaku_loader.yaku_list, yaku_loader.yakuman_list
-
+    han_info = []
     for yakuman in yakuman_list:
         if yakuman.is_satisfied(division, hand_info):
-            han += yakuman.get_han(division.is_opened)
+            now_han = yakuman.get_han(division.is_opened)
+            han += now_han
+            han_info.append((now_han, yakuman.yaku_name))
 
     if han > 0:
-        return han, True
+        return han, han_info, True
 
     for yaku in yaku_list:
         if yaku.is_satisfied(division, hand_info):
-            print(yaku.yaku_name)
-            han += yaku.get_han(division.is_opened)
+            now_han = yaku.get_han(division.is_opened)
+            han += now_han
+            han_info.append((now_han, yaku.yaku_name))
 
-    return han, False
+    return han, han_info, False
