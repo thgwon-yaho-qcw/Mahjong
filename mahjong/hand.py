@@ -26,7 +26,9 @@ class Hand:
 
         new_concealed_counts = self.concealed_counts[:]
         new_concealed_counts[tile] -= 1
-        self.string = counts_to_string(new_concealed_counts)
+        comma_index = self.string.find(',')
+        opened_string = '' if comma_index == -1 else self.string[comma_index:]
+        self.string = counts_to_string(new_concealed_counts) + opened_string
 
     def draw(self, tile):
         if self.concealed_counts[tile] == 4:
@@ -34,7 +36,9 @@ class Hand:
 
         new_concealed_counts = self.concealed_counts[:]
         new_concealed_counts[tile] += 1
-        self.string = counts_to_string(new_concealed_counts)
+        comma_index = self.string.find(',')
+        opened_string = '' if comma_index == -1 else self.string[comma_index:]
+        self.string = counts_to_string(new_concealed_counts) + opened_string
 
     @property
     def counts(self) -> tuple[list[int], list[list[int]]]:
