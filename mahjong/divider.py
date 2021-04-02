@@ -118,7 +118,7 @@ def _calculate_seven_pairs_divisions(hand: AgariHand):
     return divisions
 
 
-def _calculate_normal_divisions(hand: AgariHand):
+def _calculate_normal_divisions(hand: AgariHand, is_tsumo_agari):
     if not is_normal_agari(hand):
         return []
 
@@ -132,7 +132,7 @@ def _calculate_normal_divisions(hand: AgariHand):
             if concealed_part[1][hand.agari_tile] == 0:
                 continue
 
-            is_final_tile_open_triple = concealed_part[0] == PartType.CONCEALED_TRIPLE and not hand.is_tsumo_agari
+            is_final_tile_open_triple = concealed_part[0] == PartType.CONCEALED_TRIPLE and not is_tsumo_agari
             if is_final_tile_open_triple:
                 concealed_parts[ind] = (PartType.OPENED_TRIPLE, concealed_parts[ind][1])
             divisions.append(Division(concealed_parts + call_parts, ind, hand.agari_tile, hand.is_opened))
@@ -142,7 +142,7 @@ def _calculate_normal_divisions(hand: AgariHand):
     return divisions
 
 
-def divide_hand(hand: AgariHand):
+def divide_hand(hand: AgariHand, is_tsumo_agari=True):
     """
     divide hand into each bodies to calculate han and fu.
     returns list of division
@@ -150,7 +150,7 @@ def divide_hand(hand: AgariHand):
     :return: list of division objs
     """
 
-    normal_divisions = _calculate_normal_divisions(hand)
+    normal_divisions = _calculate_normal_divisions(hand, is_tsumo_agari)
     thirteen_orphans_divisions = _calculate_thirteen_orphans_divisions(hand)
     seven_pairs_divisions = _calculate_seven_pairs_divisions(hand)
 

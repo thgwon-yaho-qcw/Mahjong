@@ -4,7 +4,7 @@ from mahjong.constants import Tile
 class HandInfo:
     def __init__(
             self,
-            is_tsumo_agari=False,
+            is_tsumo_agari=True,
             round_wind=None,
             player_wind=None,
             is_ready_hand=False,

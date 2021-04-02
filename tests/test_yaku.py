@@ -127,7 +127,7 @@ def test_toitoi(test_input, agari_tile, expected):
  ])
 def test_sanankou_tsumo(test_input, agari_tile, expected):
     result = False
-    for division in divide_hand(AgariHand(test_input, agari_tile)):
+    for division in divide_hand(AgariHand(test_input, agari_tile),is_tsumo_agari=True):
         result |= Sanankou().is_satisfied(division, HandInfo(is_tsumo_agari=True))
     assert result == expected
 
@@ -140,7 +140,7 @@ def test_sanankou_tsumo(test_input, agari_tile, expected):
  ])
 def test_sanankou_ron(test_input, agari_tile, expected):
     result = False
-    for division in divide_hand(AgariHand(test_input, agari_tile, is_tsumo_agari=False)):
+    for division in divide_hand(AgariHand(test_input, agari_tile), is_tsumo_agari=False):
         result |= Sanankou().is_satisfied(division, HandInfo(is_tsumo_agari=False))
     assert result == expected
 
