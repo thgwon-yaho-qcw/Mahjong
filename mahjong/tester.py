@@ -57,7 +57,7 @@ def calc_point():
                 agari_tile = item[0]
                 break
 
-        hand = AgariHand(hand_str, agari_tile, is_tsumo_agari=False)
+        hand = AgariHand(hand_str, agari_tile)
         hand_info = HandInfo()
         print(calculate_hand_point(hand, hand_info))
 

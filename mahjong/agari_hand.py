@@ -11,7 +11,6 @@ class AgariHand(Hand):
 
     string = AgariTileString()
 
-    def __init__(self, string, agari_tile, is_tsumo_agari=True):
+    def __init__(self, string, agari_tile):
         self.string = string
         self.agari_tile = agari_tile
-        self.is_tsumo_agari = is_tsumo_agari
